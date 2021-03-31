@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
 import {connect} from 'react-redux';
 import {ActionCreators} from '../../../../actions/profile';
-import {InputRange, MultiSelect} from '../../../../components';
+import {MultiSelect} from '../../../../components';
 import stateList from '../../../../mock/state.json';
 import {formatPhoneNumber, isValidEmail} from '../../../../utils';
 import './style.css';
+import TextField from '@material-ui/core/TextField';
 
 export class RightContent extends Component {
     constructor(props) {
@@ -174,32 +175,52 @@ export class RightContent extends Component {
         const listState = stateList.listStates.map((item, key) =>
             <option key={key} value={item.name}>{item.name}</option>
         );
+
+
         return (
             <div className="rightPanel">
                 <div className="row">
-                    <label className="col-sm-2 col-form-label">Name</label>
                     <div className="col-sm-3 mb-2">
-                        <input type="text" value={firstName} name="firstName" onChange={(e) => {
-                            this.inputChange(e)
-                        }} className="form-control" placeholder="First Name"/>
+                        <TextField
+                            variant="outlined"
+                            id="firstName"
+                            name="firstName"
+                            label="First Name"
+                            value={firstName}
+                            onChange={(e) => {
+                                this.inputChange(e)
+                            }}
+                        />
                         {submitted && this.state.errors.user.firstName.length > 0 &&
                         <span className='error'>{this.state.errors.user.firstName}</span>}
                     </div>
                     <div className="col-sm-3 mb-2">
-                        <input type="text" value={lastName} name="lastName" onChange={(e) => {
-                            this.inputChange(e)
-                        }} className="form-control" placeholder="Last Name"/>
-                    </div>
-                    <div className="col-sm-4">
+                        <TextField
+                            variant="outlined"
+                            id="lastName"
+                            name="lastName"
+                            label="Last Name"
+                            value={lastName}
+                            onChange={(e) => {
+                                this.inputChange(e)
+                            }}
+                        />
                     </div>
                 </div>
                 <div className="row">
-                    <label htmlFor="formControlAgeRange" className="col-sm-2 col-form-label">Age</label>
-                    <div className="col-sm-6 mb-2">
-                        <InputRange min={1} max={100} step={1} value={age}
-                                    onChangeInputRange={this.onChangeInputRange}/>
-                    </div>
-                    <div className="col-sm-4">
+                    <div className="col-sm-3 mb-2">
+                    <TextField
+                        id="age"
+                        name="age"
+                        label="Birthday"
+                        type="date"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        onChange={(e) => {
+                            this.inputChange(e)
+                        }}
+                    />
                     </div>
                 </div>
                 <div className="row">
