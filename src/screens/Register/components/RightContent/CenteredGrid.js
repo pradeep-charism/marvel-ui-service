@@ -39,9 +39,8 @@ export default function CenteredGrid() {
 
                 <Grid item xs={9}>
                     <Paper className={classes.paper}>
-
                         <div className="row">
-                            <div className="col-sm-3 mb-3">
+                            <div className="col-sm-3 mb-4">
                                 <TextField
                                     variant="outlined"
                                     id="studentName"
@@ -58,7 +57,7 @@ export default function CenteredGrid() {
                                     label="NRIC"
                                 />
                             </div>
-                            <div className="col-sm-2 mb-3">
+                            <div className="col-sm-3 mb-3">
                                 <TextField
                                     variant="outlined"
                                     id="age"
@@ -73,7 +72,6 @@ export default function CenteredGrid() {
                                         this.inputChange(e)
                                     }}
                                 />
-
                             </div>
                         </div>
                         <div className="row">
@@ -120,11 +118,8 @@ export default function CenteredGrid() {
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
-                    <Paper className={classes.paper}>
-                        <div className="col-sm-2 mb-3">
-                            <ProfileImage/>
-                        </div>
-                    </Paper>
+
+                    <ProfileImage/>
                 </Grid>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>xs=3</Paper>

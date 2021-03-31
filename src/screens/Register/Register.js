@@ -8,19 +8,20 @@ import CenteredGrid from "./components/RightContent/CenteredGrid";
 export class Register extends Component {
     render() {
         return (
-            <div className="row">
+            <React.Fragment>
                 <ProfileImage/>
-                <Divider/>
                 <RightContent/>
-            </div>
+            </React.Fragment>
 
-        // <React.Fragment>
-        //     <CssBaseline />
-        //     <Container fixed>
-        //         <CenteredGrid/>
-        //
-        //     </Container>
-        // </React.Fragment>
+
+
+            // <CssBaseline />
+            // <Container fixed>
+            //     <div className="row">
+            //     <CenteredGrid/>
+            //     </div>
+            // </Container>
+
         )
     }
 }

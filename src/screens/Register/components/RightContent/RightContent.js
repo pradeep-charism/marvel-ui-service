@@ -7,6 +7,8 @@ import {formatPhoneNumber, isValidEmail} from '../../../../utils';
 import './style.css';
 import TextField from '@material-ui/core/TextField';
 import {Checkbox, FormControlLabel, FormGroup, MenuItem} from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 export class RightContent extends Component {
     constructor(props) {
@@ -191,203 +193,222 @@ export class RightContent extends Component {
 
         return (
             <React.Fragment>
-                <div className="rightPanel">
-                    <div className="row">
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="studentName"
-                                name="studentName"
-                                label="Student Name"
-                                fullWidth
-                            />
-                            {submitted && this.state.errors.user.firstName.length > 0 &&
-                            <span className='error'>{this.state.errors.user.firstName}</span>}
+                <Paper>
+                    <div className="rightPanel">
+                        <div className="row">
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="studentName"
+                                    name="studentName"
+                                    label="Student Name"
+                                    fullWidth
+                                />
+                                {submitted && this.state.errors.user.firstName.length > 0 &&
+                                <span className='error'>{this.state.errors.user.firstName}</span>}
+                            </div>
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="lastName"
+                                    name="lastName"
+                                    label="NRIC"
+                                    fullWidth
+                                    value={lastName}
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                            </div>
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="age"
+                                    name="age"
+                                    label="Birthday"
+                                    type="date"
+                                    fullWidth
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                            </div>
+                            <div className="col-sm-2 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="gender"
+                                    select
+                                    label="Gender"
+                                    fullWidth
+                                >
+                                    {genderList.map((option) => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+                            </div>
                         </div>
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="lastName"
-                                name="lastName"
-                                label="NRIC"
-                                value={lastName}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
+                        <div className="row">
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="firstName"
+                                    name="firstName"
+                                    label="Parent Name"
+                                    fullWidth
+                                    value={firstName}
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                                {submitted && this.state.errors.user.firstName.length > 0 &&
+                                <span className='error'>{this.state.errors.user.firstName}</span>}
+                            </div>
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="lastName"
+                                    name="lastName"
+                                    label="NRIC"
+                                    fullWidth
+                                    value={lastName}
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                            </div>
                         </div>
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="age"
-                                name="age"
-                                label="Birthday"
-                                type="date"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
+                        <div className="row">
+                            <div className="col-sm-3 mb-2">
+                                <TextField
+                                    variant="outlined"
+                                    id="email"
+                                    name="email"
+                                    label="Email"
+                                    fullWidth
+                                    value={email}
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                                {submitted && this.state.errors.user.email.length > 0 &&
+                                <span className='error'>{this.state.errors.user.email}</span>}
+                            </div>
+                            <div className="col-sm-3">
+                                <TextField
+                                    variant="outlined"
+                                    id="telephone"
+                                    name="telephone"
+                                    label="Contact Number"
+                                    value={telephone}
+                                    fullWidth
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
+                                />
+                                {submitted && this.state.errors.user.telephone.length > 0 &&
+                                <span className='error'>{this.state.errors.user.telephone}</span>}
+                            </div>
                         </div>
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="gender"
-                                select
-                                label="Gender"
-                            >
-                                {genderList.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="firstName"
-                                name="firstName"
-                                label="Parent Name"
-                                fullWidth
-                                value={firstName}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
-                            {submitted && this.state.errors.user.firstName.length > 0 &&
-                            <span className='error'>{this.state.errors.user.firstName}</span>}
-                        </div>
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                variant="outlined"
-                                id="lastName"
-                                name="lastName"
-                                label="NRIC"
-                                value={lastName}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-3 mb-2">
-                            <TextField
-                                variant="outlined"
-                                id="email"
-                                name="email"
-                                label="Email"
-                                fullWidth
-                                value={email}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
-                            {submitted && this.state.errors.user.email.length > 0 &&
-                            <span className='error'>{this.state.errors.user.email}</span>}
-                        </div>
-                        <div className="col-sm-3">
-                            <TextField
-                                variant="outlined"
-                                id="telephone"
-                                name="telephone"
-                                label="Contact Number"
-                                value={telephone}
-                                onChange={(e) => {
-                                    this.inputChange(e)
-                                }}
-                            />
-                            {submitted && this.state.errors.user.telephone.length > 0 &&
-                            <span className='error'>{this.state.errors.user.telephone}</span>}
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-3 mb-3">
-                            <TextField
-                                id="address"
-                                name="address"
-                                label="Address"
-                                multiline
-                                fullWidth
-                                rows={5}
-                                variant="outlined"
-                            />
-                        </div>
-                        <div className="col-sm-3">
-                            <div className="mb-3">
+                        <div className="row">
+                            <div className="col-sm-3 mb-3">
+                                <TextField
+                                    id="address"
+                                    name="address"
+                                    label="Address"
+                                    multiline
+                                    fullWidth
+                                    rows={5}
+                                    variant="outlined"
+                                />
+                            </div>
+                            <div className="col-sm-3">
+                                <div className="mb-3">
+                                    <TextField
+                                        variant="outlined"
+                                        id="district"
+                                        name="district"
+                                        label="District"
+                                        fullWidth
+                                    />
+                                </div>
                                 <TextField
                                     variant="outlined"
                                     id="district"
                                     name="district"
-                                    label="District"
+                                    label="Country"
+                                    fullWidth
                                 />
                             </div>
-                            <TextField
-                                variant="outlined"
-                                id="district"
-                                name="district"
-                                label="Country"
-                            />
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-7 mb-3">
-                            <FormGroup row>
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
-                                    label="Swimming"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
-                                    label="Dancing"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
-                                    label="Swimming"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
-                                    label="Dancing"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
-                                    label="Swimming"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
-                                    label="Dancing"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
-                                    label="Swimming"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
-                                    label="Dancing"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
-                                    label="Swimming"
-                                />
-                                <FormControlLabel
-                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
-                                    label="Dancing"
-                                />
-                            </FormGroup>
-                        </div>
+                        <div className="row">
+                            <div className="col-sm-7 mb-3">
+                                <FormGroup row>
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedA"
+                                                           color="primary"/>}
+                                        label="Swimming"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedB"
+                                                           color="primary"/>}
+                                        label="Dancing"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedA"
+                                                           color="primary"/>}
+                                        label="Swimming"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedB"
+                                                           color="primary"/>}
+                                        label="Dancing"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedA"
+                                                           color="primary"/>}
+                                        label="Swimming"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedB"
+                                                           color="primary"/>}
+                                        label="Dancing"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedA"
+                                                           color="primary"/>}
+                                        label="Swimming"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedB"
+                                                           color="primary"/>}
+                                        label="Dancing"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedA"
+                                                           color="primary"/>}
+                                        label="Swimming"
+                                    />
+                                    <FormControlLabel
+                                        control={<Checkbox onChange={this.handleChange} name="checkedB"
+                                                           color="primary"/>}
+                                        label="Dancing"
+                                    />
+                                </FormGroup>
+                            </div>
 
-                    </div>
-                    <div className="row">
-                        <div className="col-sm-1">
-                            <button type="button" className="button" onClick={this.submitForm}>Submit</button>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm-1">
+                                <button type="button" className="button" onClick={this.submitForm}>Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Paper>
             </React.Fragment>
 
         )
