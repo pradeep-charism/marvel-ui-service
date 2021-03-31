@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Divider, ProfileImage} from '../../components';
 import RightContent from './components/RightContent';
+import StudentRegistrationMain from "./components/RightContent/StudentRegistrationMain";
 
 export class Register extends Component {
     render() {

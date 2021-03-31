@@ -7,6 +7,7 @@ import Confirmation from '../screens/Confirmation';
 import {AuthContext} from '../context/auth';
 import {getStore} from '../utils';
 import StudentRegistration from "../screens/Register/components/register/StudentRegistration";
+import StudentRegistrationMain from "../screens/Register/components/RightContent/StudentRegistrationMain";
 
 function AuthenticatedRoute({component: Component, ...rest}) {
     return (
@@ -26,6 +27,7 @@ class Navigation extends Component {
                     <Switch>
                         <Route exact path="/login" component={Login}/>
                         <Route path="/register" component={Register}/>
+                        <Route path="/simple" component={StudentRegistrationMain}/>
                         <Route path="/student" component={StudentRegistration}/>
                         <Route path="/confirm" component={Confirmation}/>
                         <AuthenticatedRoute exact path='/home' component={Home}/>

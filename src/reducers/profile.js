@@ -14,7 +14,6 @@ const initialState = {
         address2: '',
         interests: [],
         profileImage: '',
-        subscribenewsletter: false
     },
     formSubmitted: false
 }
