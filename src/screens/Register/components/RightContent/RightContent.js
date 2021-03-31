@@ -6,7 +6,7 @@ import stateList from '../../../../mock/state.json';
 import {formatPhoneNumber, isValidEmail} from '../../../../utils';
 import './style.css';
 import TextField from '@material-ui/core/TextField';
-import {MenuItem} from "@material-ui/core";
+import {Checkbox, FormControlLabel, FormGroup, MenuItem} from "@material-ui/core";
 
 export class RightContent extends Component {
     constructor(props) {
@@ -154,6 +154,9 @@ export class RightContent extends Component {
         errors.user.interests = ''
         this.setState({errors});
     }
+
+    handleChange = (event) => {
+    };
 
     render() {
         const {
@@ -333,6 +336,50 @@ export class RightContent extends Component {
                         </div>
                     </div>
                     <div className="row">
+                        <div className="col-sm-7 mb-3">
+                            <FormGroup row>
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
+                                    label="Swimming"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
+                                    label="Dancing"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
+                                    label="Swimming"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
+                                    label="Dancing"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
+                                    label="Swimming"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
+                                    label="Dancing"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
+                                    label="Swimming"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
+                                    label="Dancing"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedA" color="primary"/>}
+                                    label="Swimming"
+                                />
+                                <FormControlLabel
+                                    control={<Checkbox onChange={this.handleChange} name="checkedB" color="primary"/>}
+                                    label="Dancing"
+                                />
+                            </FormGroup>
+                        </div>
 
                     </div>
                     <div className="row">
