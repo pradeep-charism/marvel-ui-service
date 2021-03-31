@@ -5,6 +5,7 @@ import { withRouter} from "react-router-dom";
 import { ActionCreators } from '../../actions/profile';
 import { getStore } from '../../utils';
 import './style.css';
+import Button from "@material-ui/core/Button";
 
 export class ProfileImage extends Component {
   

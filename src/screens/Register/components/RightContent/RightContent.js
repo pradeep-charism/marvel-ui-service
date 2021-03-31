@@ -9,6 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import {Checkbox, FormControlLabel, FormGroup, MenuItem} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 export class RightContent extends Component {
     constructor(props) {
@@ -404,7 +405,9 @@ export class RightContent extends Component {
                         </div>
                         <div className="row">
                             <div className="col-sm-1">
-                                <button type="button" className="button" onClick={this.submitForm}>Submit</button>
+                                <Button variant="contained" color="primary" onClick={this.submitForm}>
+                                    Submit
+                                </Button>
                             </div>
                         </div>
                     </div>

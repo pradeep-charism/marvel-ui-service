@@ -22,8 +22,8 @@
   width: 90% !important;
 }
 .profileImageSelection {
-  background-color: #1b8bec;
-  color: #fff;
+  /*background-color: purple;*/
+  color: #3f50b5;
   position: absolute;
   left: 50%;
   top: 50%;
