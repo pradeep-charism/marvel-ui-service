@@ -6,7 +6,7 @@
 }
 .profileImage {
   height: 150px;
-  /* width: 90%; */
+   width: 90%;
   position: absolute;
   z-index: 99;
   left: 50%;
@@ -16,9 +16,9 @@
 }
 .container {
   position: relative;
-  height: 30vh;
+  height: 25vh;
   background-color: #1b8bec;
-  min-height: 200px;
+  min-height: 150px;
   width: 90% !important;
 }
 .profileImageSelection {
