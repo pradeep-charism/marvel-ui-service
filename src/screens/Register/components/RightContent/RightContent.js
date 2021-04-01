@@ -8,7 +8,6 @@ import './style.css';
 import TextField from '@material-ui/core/TextField';
 import {Checkbox, FormControlLabel, FormGroup, MenuItem} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
 export class RightContent extends Component {
@@ -23,9 +22,7 @@ export class RightContent extends Component {
                 email: '',
                 state: '',
                 country: '',
-                address: 'Home',
-                address1: '',
-                address2: '',
+                address: '',
                 interests: [],
             },
             errors: {
@@ -33,8 +30,7 @@ export class RightContent extends Component {
                     firstName: 'Enter First Name',
                     telephone: 'Enter Telephone',
                     email: 'Email is not valid!',
-                    address1: 'Enter address1',
-                    address2: 'Enter address2',
+                    address: 'Enter address',
                 }
             },
             validForm: false,
@@ -65,11 +61,8 @@ export class RightContent extends Component {
             case 'telephone':
                 errors.user.telephone = value.length < 1 && value.length > 10 ? 'Enter valid telephone number' : '';
                 break;
-            case 'address1':
-                errors.user.address1 = value.length < 1 ? `Enter ${this.state.user.address} address1` : '';
-                break;
-            case 'address2':
-                errors.user.address2 = value.length < 1 ? `Enter ${this.state.user.address} address2` : '';
+            case 'address':
+                errors.user.address = value.length < 1 ? `Enter ${this.state.user.address} address` : '';
                 break;
             default:
                 break;
@@ -152,9 +145,7 @@ export class RightContent extends Component {
         errors.user.firstName = ''
         errors.user.telephone = ''
         errors.user.email = ''
-        errors.user.address1 = ''
-        errors.user.address2 = ''
-        errors.user.interests = ''
+        errors.user.address = ''
         this.setState({errors});
     }
 
@@ -170,10 +161,7 @@ export class RightContent extends Component {
             telephone,
             state,
             country,
-            address,
-            address1,
-            address2,
-            interests,
+            address
         } = this.state.user;
         const {submitted} = this.state;
         const listState = stateList.listStates.map((item, key) =>
@@ -241,7 +229,7 @@ export class RightContent extends Component {
                                 <TextField
                                     variant="outlined"
                                     id="gender"
-                                    select
+                                    select defaultValue="Male"
                                     label="Gender"
                                     fullWidth
                                 >
@@ -324,7 +312,11 @@ export class RightContent extends Component {
                                     multiline
                                     fullWidth
                                     rows={5}
+                                    value={address}
                                     variant="outlined"
+                                    onChange={(e) => {
+                                        this.inputChange(e)
+                                    }}
                                 />
                             </div>
                             <div className="col-sm-3">
